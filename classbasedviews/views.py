@@ -13,11 +13,12 @@ class Add(View):
       i=int(request.GET["t1"])
       j=int(request.GET["t2"])
       k=i+j
-      res=HttpResponse("the sum is:"+str(k))
-      return res
+      condic = {"res": k}
+      return render(request, 'result.html', condic)
+
     def post(self,request):
       p=int(request.POST["t1"])
       q=int(request.POST["t2"])
       r=p+q
-      res=HttpResponse("the sum is:"+str(r))
-      return res
+      condic = {"res": r}
+      return render(request, 'result.html', condic)
